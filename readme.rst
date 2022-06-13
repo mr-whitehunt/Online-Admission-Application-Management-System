@@ -15,8 +15,7 @@ Release Information
 *******************
 
 This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+latest stable release please visit this repository regularly.
 
 **************************
 Changelog and New Features
@@ -40,7 +39,7 @@ Installation
 ************
 
 1. Go to the application/config/database.php
-	 set the parameters on the line no 78,79,80,81 as per your database parameters.
+	 set the parameters on the line no hostname,username,password,database as per your database parameters.
 	 
 2. Now go to phpmyadmin and create a database and import the database file from the _DB_FILE_ folder.
 
@@ -66,12 +65,4 @@ Resources
 -  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
 -  `Community Slack Channel <https://codeigniterchat.slack.com>`_
 
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+Report security issues to our `Security Panel <mailto:connectwithworld61@gmail.com>`_.
