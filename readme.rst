@@ -48,6 +48,9 @@ Installation
 	 
 	 Replace "administration at the rate of svp.com" to your desired mail address.
 
+4. To setup SMTP mail go to application/config/email.PHP
+         Now change the mail_host, mail_port, mail_user, mail_pass as per your email SMTP
+
 *******
 License
 *******
