@@ -1,0 +1,1049 @@
+:root {
+    --black: #000;
+    --black1: #181818;
+    --darkblue: #012B48;
+    --blue: #4068FC;
+    --white: #fff;
+    --grey: #ececed;
+    --grey1: #626262;
+    --halfblack: #46484E;
+    --halfblack1: #7a7a7a;
+    --green: #12b521;
+}
+html, body {
+    font-size: 15px;
+    font-family: "Amazon Ember",Arial,sans-serif;
+    color: var(--halfblack1);
+    vertical-align: baseline;
+    line-height: 1.7em;
+    font-weight: 400;
+    background: var(--white);
+}
+a {
+    color: var(--halfblack);
+}
+a:hover,a:focus {
+    transition: all 0.4s ease-in-out 0s;
+    text-decoration: none;
+    color: var(--blue);
+}
+
+.form-control {
+    background-color: #EFF1F6;
+    position: relative;
+    display: block;
+    width: 100%;
+    line-height: 24px;
+    padding: 10px 20px;
+    color: #7a7a7a;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    -webkit-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    transition: all 300ms ease;
+    margin-bottom: 10px;
+}
+
+/*Loader*/
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+    -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    z-index: 1001;
+}
+
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+    -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+
+    -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+        animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+@-webkit-keyframes spin {
+    0%   { 
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+@keyframes spin {
+    0%   { 
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+#loader-wrapper .loader-section {
+    position: fixed;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: #222222;
+    z-index: 1000;
+    -webkit-transform: translateX(0);  /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(0);  /* IE 9 */
+    transform: translateX(0);  /* Firefox 16+, IE 10+, Opera */
+}
+#loader-wrapper .loader-section.section-left {
+    left: 0;
+}
+#loader-wrapper .loader-section.section-right {
+    right: 0;
+}
+/* Loaded */
+.loaded #loader-wrapper .loader-section.section-left {
+    -webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: translateX(-100%);  /* IE 9 */
+            transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
+
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  
+            transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+.loaded #loader-wrapper .loader-section.section-right {
+    -webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: translateX(100%);  /* IE 9 */
+            transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
+
+-webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);  
+        transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+.loaded #loader {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;  
+            transition: all 0.3s ease-out;
+}
+.loaded #loader-wrapper {
+    visibility: hidden;
+    -webkit-transform: translateY(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: translateY(-100%);  /* IE 9 */
+            transform: translateY(-100%);  /* Firefox 16+, IE 10+, Opera */
+    -webkit-transition: all 0.3s 1s ease-out;  
+            transition: all 0.3s 1s ease-out;
+}
+
+/*topbar*/
+#header .header-inner .menu-sticky {
+    position: absolute;
+    width: 100%;
+    background: var(--white);
+}
+.toolbar-area {
+    font-size: 16px;
+    border: 1px solid var(--grey);
+}
+.toolbar-contact ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.toolbar-area .toolbar-contact ul li {
+    color: var(--halfblack);
+}
+.toolbar-contact ul li:first-child {
+    border-right: 1px solid var(--grey);
+    margin-right: 25px;
+    padding-right: 30px;
+}
+.toolbar-area .toolbar-contact ul li {
+    display: inline-block;
+    margin-right: 25px;
+    line-height: 27px;
+    position: relative;
+}
+.toolbar-contact .fa {
+    color: var(--blue);
+}
+.toolbar-area .toolbar-sl-share ul {
+    text-align: right;
+    margin: 0px;
+}
+.toolbar-area .toolbar-sl-share ul li {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 40px;
+    margin-left: 1rem;
+}
+.top-bar-right .login-nav {
+    position: relative;
+    padding: 0px 0px;
+    border-left: 1px solid var(--grey);
+    margin-left: 30px;
+}
+.top-bar-right .login-nav ul {
+    padding: 0;
+    margin: 0;
+    margin-left: 0px;
+    position: relative;
+    margin-left: 30px;
+}
+.top-bar-right .login-nav li {
+    position: relative;
+    padding-left: 30px;
+    display: inline-block;
+    background: url(https://demo.auburnforest.com/wordpress/firecamp/wp-content/themes/firecamp/assets/images/user.svg) left center;
+    background-repeat: repeat;
+    background-repeat: no-repeat;
+    height: 22px;
+}
+.top-bar-right .login-nav li a {
+    position: relative;
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-block;
+    -webkit-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+.navbar {
+    background: var(--white);
+    box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.14);
+    z-index: 99;
+}
+.navbar .navbar-toggler {
+    border: none;
+}
+.navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDMyIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0aXRsZS8+PGcgZGF0YS1uYW1lPSJtZW51ICIgaWQ9Im1lbnVfIj48cGF0aCBkPSJNMjksNkgzQTEsMSwwLDAsMCwzLDhIMjlhMSwxLDAsMCwwLDAtMloiLz48cGF0aCBkPSJNMywxN0gxNmExLDEsMCwwLDAsMC0ySDNhMSwxLDAsMCwwLDAsMloiLz48cGF0aCBkPSJNMjUsMjRIM2ExLDEsMCwwLDAsMCwySDI1YTEsMSwwLDAsMCwwLTJaIi8+PC9nPjwvc3ZnPg==");
+}
+.navbar .navbar-nav .nav-item {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.navbar .navbar-nav .nav-item a{
+    font-weight: 600;
+    text-decoration: solid;
+}
+
+/*Mobile apply button*/
+.apply-btn-mobile {
+    padding: 10px 0px 10px 0px;
+    background: var(--blue);
+}
+.apply-btn-mobile a {
+    color: var(--white);
+}
+
+/*carousel*/
+.carousel .carousel-indicators li{
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+.carousel .carousel-inner {
+	width: 100%;
+	display: inline-block;
+	position: relative;
+}
+.carousel .carousel-inner {
+	padding-top: 43.25%;
+	display: block;
+	content: "";
+}
+.carousel .carousel-inner .carousel-item {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.carousel .carousel-inner .carousel-item .caption {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+	width: 60%;
+	z-index: 9;
+	text-align: center;
+}
+.carousel .carousel-inner .carousel-item .caption h1 {
+    color: #fff;
+    font-size: 52px;
+    font-weight: 700;
+    margin-bottom: 23px;
+}
+.carousel .carousel-inner .carousel-item .caption h2 {
+    color: rgba(255,255,255,.75);
+    font-size: 26px;
+    font-weight: 300;
+}
+/*Intro*/
+.intro {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.intro .img-container {
+    background-image: url("https://demo.auburnforest.com/wordpress/firecamp/wp-content/uploads/2021/04/shape.svg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+.intro .img-container .img-wrapper {
+    margin: 45px 0px 0px 62px;
+}
+.intro .img-container .img-wrapper img {
+    height: auto;
+    max-width: 100%;
+    border: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.intro .content-container {
+    margin: 58px 0px 0px 0px;
+    padding: 10px 10px 10px 0px;
+}
+.intro .content-container .title-inner .title-small, .statistics .left-container .sub-text {
+    position: relative;
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: block;
+}
+.intro .content-container .title-inner .title {
+    color: var(--black1);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 50px;
+}
+.intro .content-container .title-inner .title span.watermark {
+    position: absolute;
+    font-size: 80px;
+    text-transform: uppercase;
+    font-weight: 800;
+    z-index: -1;
+    opacity: 0.05;
+    width: 100%;
+    left: 0;
+    color: inherit;
+}
+.intro .content-container .title-inner .title span {
+    color: var(--blue);
+}
+.intro .content-container .description p {
+    margin-bottom: 0;
+    color: var(--grey1);
+    font-size: 16px;
+    line-height: 1.92em;
+}
+.intro .content-container .description ul {
+    list-style: none;
+    margin: 28px 0 0;
+    max-width: 365px;
+}
+.intro .content-container .description ul li {
+    position: relative;
+    padding-left: 30px;
+    display: inline-block;
+    background: url(https://demo.auburnforest.com/wordpress/firecamp/wp-content/themes/firecamp/assets/images/check.png) left no-repeat;
+    color: var(--black1);
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.intro .content-container .description .phone {
+    padding-left: 30px;
+    font-size: 20px;
+    color: var(--green);
+    line-height: 50px;
+    font-weight: 500;
+    background: url(https://demo.auburnforest.com/wordpress/firecamp/wp-content/themes/firecamp/assets/images/phone.png) left no-repeat;
+    display: block;
+    margin-top: 10px;
+}
+
+/*Statistics*/
+.statistics {
+    padding: 100px 0px 100px 0px;
+    background-image: url("https://demo.auburnforest.com/wordpress/firecamp/wp-content/uploads/2021/04/bg.jpg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.statistics .left-container {
+    padding: 10px 20px 10px 15px;
+}
+.element-wrap {
+    position: relative;
+    width: 100%;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+}
+.statistics .left-container .title-inner .title {
+    color: var(--black1);
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 40px;
+}
+.statistics .left-container .title-inner .title span {
+    color: var(--black1);
+    font-weight: 400;
+}
+.statistics .right-container {
+    padding: 10px;
+    padding-left: 10px;
+}
+.statistics .right-container .card-deck .card {
+    padding: 10px;
+    background: var(--white);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.14);
+}
+.statistics .right-container .card-deck .card .counter-icon {
+    width: 75px;
+    margin: 0px 0px 26px 0px;
+}
+.statistics .right-container .card-deck .card .counter-icon {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+}
+.statistics .right-container .card-deck .card .counter-icon img {
+    height: auto;
+    max-width: 100%;
+    border: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.count-number span {
+    color: var(--black);
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 30px;
+}
+.count-text .rs-counter {
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+}
+.count-number span {
+    padding: 0 0 8px;
+}
+.count-text .title {
+    color: var(--halfblack);
+    font-size: 14px;
+}
+.count-text .title {
+    font-size: 18px;
+    color: var(--grey1);
+    line-height: 18px;
+    transition: all 0.3s ease 0s;
+}
+
+/*statistics2*/
+.achievements {
+    display: none;
+    background-color: #252841;
+    background-image: url("https://demo.auburnforest.com/wordpress/firecamp/wp-content/uploads/2020/07/pattern-1.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+.achievements .container-fluid {
+    padding-top: 150px;
+    padding-bottom: 190px;
+}
+.achievements .container-fluid .inner-title {
+    margin-bottom: 50px;
+}
+.achievements .container-fluid .inner-title .title {
+    font-family: "Roboto", Sans-serif;
+    font-size: 40px;
+    color: var(--white);
+    margin: 0px 0px 20px 0px;
+}
+.achievements .container-fluid .inner-title .sub-title {
+    color: var(--white);
+    font-family: "Poppins", Sans-serif;
+    font-size: 14px;
+    line-height: 1.92em;
+}
+.achievements .container-fluid .card {
+    background: none;
+    border: none;
+}
+.achievements .container-fluid .card .counter-icon {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+}
+.achievements .container-fluid .card .counter-icon {
+    margin: 0px 0px 25px 0px;
+    border-radius: 50px 50px 50px 50px;
+}
+.achievements .container-fluid .card .icon1 {
+    background-color: #FBDDDD;
+}
+.achievements .container-fluid .card .icon2 {
+    background-color: #B4E9F9;
+}
+.achievements .container-fluid .card .icon3 {
+    background-color: #FBCE8B;
+}
+.achievements .container-fluid .card .count-number span {
+    color: var(--white);
+    font-family: "Poppins", Sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1em;
+    padding: 0px 0px 20px 0px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+}
+.achievements .container-fluid .card .count-text .title {
+    color: var(--white);
+    font-family: "Poppins", Sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 18px;
+    transition: all 0.3s ease 0s;
+}
+/*statistics1 video*/
+.video {
+    display: none;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.video .container-fluid {
+    border-radius: 5px;
+    background-image: url("https://demo.auburnforest.com/wordpress/firecamp/wp-content/uploads/2020/06/video.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -100px;
+    margin-bottom: 50px;
+}
+.video-container {
+    padding: 150px 0px 150px 0px
+}
+.rs-video {
+    text-align: center;
+}
+.rs-video {
+    position: relative;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    padding: 100px 20px;
+}
+.rs-video.center .overly-border {
+    margin: 0 auto;
+}
+.rs-video .overly-border {
+    border-color: var(--blue) !important;
+}
+.rs-video .overly-border {
+    border-radius: 50%;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.rs-video .popup-videos {
+    background: var(--white);
+}
+.rs-video .popup-videos {
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    box-sizing: content-box;
+    display: block;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    line-height: 75px;
+    padding: 0;
+    margin: 0 auto;
+    left: 50%;
+    top: 50%;
+    z-index: 9;
+    text-align: center;
+}
+.rs-video .video-desc {
+    top: 80px;
+}
+.video-desc {
+    color: #FFFFFF;
+    font-family: "Poppins", Sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3em;
+}
+.rs-video .video-desc {
+    z-index: 1;
+    position: relative;
+}
+
+/*courses*/
+.courses {
+    padding: 40px 10px 40px 10px;
+}
+.courses .title-inner .title-small {
+    position: relative;
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: block;
+}
+.courses .title-inner .title {
+    color: var(--black1);
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 50px;
+}
+.courses .courses-container {
+    margin: 40px 0px 40px 0px;
+}
+.courses .courses-container .card-container {
+    margin-bottom: 25px;
+}
+.courses .courses-container .card .card-body {
+    padding: 25px;
+}
+.courses .courses-container .card .card-body .card-title {
+    color: var(--black);
+}
+.courses .courses-container .card .card-body .card-text {
+    color: var(--halfblack);
+}
+
+/*Grivance*/
+.grivance {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 160px 0px 160px 0px;
+}
+.grivance .title-inner .title-small {
+    position: relative;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: block;
+}
+.grivance .title-inner .title {
+    color: var(--white);
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 40px;
+}
+.grivance  .description {
+    margin-bottom: 0;
+    color: var(--grey);
+    font-size: 16px;
+    line-height: 1.92em;
+}
+.grivance  .grivance-btn-link {
+    margin-top: 30px;
+}
+.grivance  .grivance-btn-link a{
+    color: var(--white);
+    border: 1px solid var(--white);
+    padding: 15px;
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.grivance  .grivance-btn-link a:hover{
+    color: var(--black);
+    border: 1px solid var(--white);
+    background: var(--white);
+    padding: 15px;
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/*About*/
+.about {
+    padding: 80px 10px 80px 10px;
+}
+.about .title-inner .title-small, .statistics .left-container .sub-text {
+    position: relative;
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: block;
+}
+.about .title-inner .title {
+    color: var(--black1);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 50px;
+}
+.about .title-inner .title span.watermark {
+    position: absolute;
+    font-size: 80px;
+    text-transform: uppercase;
+    font-weight: 800;
+    z-index: -1;
+    opacity: 0.05;
+    width: 100%;
+    left: 0;
+    color: inherit;
+}
+.about .description p {
+    color: var(--grey1);
+    font-size: 16px;
+    line-height: 1.92em;
+}
+.about .img-container {
+    width: 100%;
+}
+.about .img-container img {
+    height: auto;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/*Contact*/
+.contact {
+    padding: 90px 0px 105px 0px;
+    background-image: url("https://demo.auburnforest.com/wordpress/firecamp/wp-content/uploads/2021/04/bg2.jpg");
+}
+.contact .title-inner .title-small {
+    position: relative;
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: block;
+}
+.contact .title-inner .title {
+    color: var(--black1);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 50px;
+}
+.contact .form-control {
+    background: var(--white);
+    border: 1px solid var(--grey);
+}
+.contact .card {
+    box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.14);
+    margin: 0px 15px 0px 30px;
+    padding: 32px 40px 35px 40px;
+}
+.contact .card .card-title {
+    font-size: 20px;
+    line-height: 20px;
+    margin: 6px 0px 15px 0px;
+    color: var(--black);
+}
+.contact .card .elementor-icon-box-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+.contact .card .elementor-icon-box-title {
+    margin-bottom: 0px;
+    color: var(--black1);
+}
+.contact .card .elementor-icon-box-description {
+    color: var(--grey1);
+    font-size: 14px;
+    line-height: 24px;
+}
+
+/*Grivance*/
+.contain {
+    background-image: url('../img/bg-grivance.png');
+    background-size: cover;
+    object-position: center;
+    background-repeat: no-repeat;
+    height: auto;
+}
+.contain .box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.contain .box {
+    width: 400px;
+    background: var(--white);
+    border: 1px solid var(--grey);
+    border-radius: 9px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.14);
+}
+.contain .box .inner-title .title,.contain .box .inner-title .sub-title,.contain .box .inner-title .description{
+    margin-bottom: 1rem;
+}
+.contain .box .inner-title .title h3{
+    text-transform: uppercase;
+    color: var(--halfblack);
+    font-size: 7;
+    font-weight: bolder;
+}
+.contain .box .inner-title .sub-title h5{
+    text-transform: uppercase;
+    color: var(--halfblack);
+    font-weight: bolder;
+    font-size: 5;
+}
+.contain .box .inner-title .description p{
+    font-weight: bolder;
+    color: var(--halfblack);
+    font-size: 3;
+}
+.contain .box .box-content .grivance-btn {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.contain .box .box-content .grivance-btn a {
+    background: var(--blue);
+    color: var(--white);
+    padding: 15px;
+    border-radius: 50px;
+}
+.student-form {
+    width: 700px !important;
+}
+
+/*Online Application*/
+.application-heading {
+    text-align: center;
+}
+.application-heading .title h3 {
+    color: var(--black);
+}
+.application-heading .sub-title {
+    color: var(--halfblack);
+}
+.application-container {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+.application-container p {
+    color: var(--halfblack);
+}
+.application-container label {
+    color: var(--black1);
+    font-size: 16px;
+}
+
+
+/*Footer*/
+.footer {
+    background: var(--black1);
+}
+.footer .footer-top {
+    padding: 86px 0 58px;
+}
+.footer .footer-top a {
+    color: var(--white);
+}
+.footer .footer-top a:hover {
+    color: var(--blue);
+}
+.footer .footer-top .textwidget {
+    color: var(--white);
+}
+.footer .footer-top .footer-logo-wrap {
+    margin-bottom: 15px;
+    padding-top: 12px;
+}
+.footer .footer-top .widget {
+    margin: 0 0 30px;
+}
+.footer .footer-top ul.footer_social {
+    padding-top: 8px;
+}
+.footer .footer-top  ul {
+    padding: 0;
+    padding-top: 0px;
+    margin: 0;
+    list-style: none;
+}
+.footer .footer-top ul.footer_social {
+    margin: 0;
+}
+.footer .footer-top  ul.footer_social li {
+    display: inline-block;
+    margin-right: 6px;
+    text-align: center;
+    border-radius: 3px;
+}
+.footer .footer-top  ul.footer_social li a i {
+    text-align: center;
+    transition: all 0.7s ease 0s;
+    background-size: 200% !important;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background: transparent;
+    background-size: auto;
+    text-align: center;
+    line-height: 47px;
+    border: 2px solid #2a2b2f;
+}
+.footer .footer-top  ul.footer_social li i {
+    padding: 0;
+    font-size: 18px;
+    color: var(--white);
+}
+.footer .footer-top  ul.footer_social li a i:hover {
+    transition: all 0.7s ease 0s;
+    background: var(--white);
+    color: var(--blue);
+}
+.footer .footer-top h3.footer-title {
+    color: var(--white);
+    margin-bottom: 18px;
+    padding-bottom: 3px;
+    position: relative;
+    font-size: 18px;
+    z-index: 1;
+    font-weight: 600;
+}
+.footer .footer-top ul.menu {
+    margin-top: -5px;
+}
+.footer .footer-top ul.menu li {
+    margin-bottom: 3px;
+}
+.footer .footer-bottom {
+    padding: 15px 0;
+    border-top: 1px solid rgba(132, 149, 171, 0.1);
+}
+.footer .footer-bottom .copyright p {
+    margin: 0;
+    line-height: 35px;
+}
+.footer .footer-bottom .copyright p a {
+    color: var(--white);
+}
+.footer .footer-bottom .copyright p a:hover {
+    color: var(--blue);
+}
+
+/*Brekpoints*/
+@media (max-width: 575.98px) {
+    .intro .img-container {
+        background-image: url("https://demo.auburnforest.com/wordpress/firecamp/wp-content/uploads/2021/04/shape.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .intro .img-container .img-wrapper{
+        margin: 0px 0px 0px 0px;
+    }
+    .intro {
+        padding: 0px;
+    }
+    .contact .card {
+        box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.14);
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+    }
+    .carousel .carousel-inner {
+        height: 50vh;
+    }
+    .carousel .carousel-inner .carousel-item .caption h1 {
+        color: #fff;
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 23px;
+    }
+    .carousel .carousel-inner .carousel-item .caption h2 {
+        color: rgba(255,255,255,.75);
+        font-size: 20px;
+        font-weight: 300;
+    }
+    .contain .box {
+        width: 400px;
+        background: none;
+        border: none;
+        border-radius: 9px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        padding-left: 30px;
+        padding-right: 30px;
+        box-shadow: none;
+    }
+}
