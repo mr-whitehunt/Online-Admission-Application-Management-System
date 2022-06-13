@@ -2,10 +2,10 @@
 
 $config = array(
     'protocol' => 'smtp', // 'mail', 'sendmail', or 'smtp'
-    'smtp_host' => 'smtp.gmail.com', 
-    'smtp_port' => 465,
-    'smtp_user' => 'connectwithworld61@gmail.com',
-    'smtp_pass' => '1@sandy123',
+    'smtp_host' => 'email smtp link', 
+    'smtp_port' => your email smtp port,
+    'smtp_user' => 'your email id',
+    'smtp_pass' => 'your email password',
     'smtp_crypto' => 'ssl', //can be 'ssl' or 'tls' for example
     'mailtype' => 'html', //plaintext 'text' mails or 'html'
     'smtp_timeout' => '4', //in seconds
