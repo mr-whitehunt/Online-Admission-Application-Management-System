@@ -44,9 +44,9 @@ Installation
 2. Now go to phpmyadmin and create a database and import the database file from the _DB_FILE_ folder.
 
 3. To change the email go to application/controller/student_controller.php
-	 Now you search for "$this->email->from('administration@svp.com');"
+	 Now you search for "$this->email->from('administration at the rate of svp.com');"
 	 
-	 Replace "administration@svp.com" to your desired mail address.
+	 Replace "administration at the rate of svp.com" to your desired mail address.
 
 *******
 License
