@@ -39,8 +39,15 @@ issues, as well as missing features.
 Installation
 ************
 
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
+1. Go to the application/config/database.php
+	 set the parameters on the line no 78,79,80,81 as per your database parameters.
+	 
+2. Now go to phpmyadmin and create a database and import the database file from the _DB_FILE_ folder.
+
+3. To change the email go to application/controller/student_controller.php
+	 Now you search for "$this->email->from('administration@svp.com');"
+	 
+	 Replace "administration@svp.com" to your desired mail address.
 
 *******
 License
